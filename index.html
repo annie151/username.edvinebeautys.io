@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edvine Beautys Home Unisex</title>
+    <link rel="stylesheet" href="css/stylesheet1">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f9f3f3;
+            --accent-color: #845ec2;
+            --text-color: #333333;
+            --light-text: #ffffff;
+            --dark-bg: #2c2c2c;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light-text);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            top: 0;
+        }
+        
+        .logo-container {
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav {
+            background-color: var(--primary-color);
+            padding: 10px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-list li {
+            margin: 0 15px;
+        }
+        
+        .nav-list a {
+            text-decoration: none;
+            color: var(--light-text);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .nav-list a:hover {
+            color: var(--dark-bg);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--light-text);
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 120px;
+            color: var(--light-text);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light-text);
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .service-description {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        /* Products Section */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: var(--light-text);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+        }
+        
+        .product-category {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-content h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 80px 0;
+        }
+        
+        .testimonials .section-title {
+            color: var(--light-text);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial {
+            min-width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .dot {
+            height: 12px;
+            width: 12px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dot.active {
+            background-color: var(--light-text);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .info-item {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .info-icon {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .info-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Gallery */
+        .gallery {
+            background-color: var(--dark-bg);
+            padding: 80px 0;
+        }
+        
+        .gallery .section-title {
+            color: var(--light-text);
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-title {
+            color: var(--light-text);
+            text-align: center;
+            padding: 10px;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: var(--light-text);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Booking Section */
+        .booking-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--light-text);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group-inline {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-list {
+                position: fixed;
+                top: 140px;
+                left: -100%;
+                width: 100%;
+                background: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transition: all 0.5s ease;
+                z-index: 99;
+            }
+            
+            .nav-list.active {
+                left: 0;
+            }
+            
+            .nav-list li {
+                margin: 10px 0;
+            }
+            
+            .hero {
+                height: 70vh;
+                margin-top: 140px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container logo-container">
+            <h1 class="logo">Edvine <span>Beautys</span> Home</h1>
+        </div>
+        <nav>
+            <div class="container nav-container">
+                <div class="hamburger">☰</div>
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Edvine Beautys Home Unisex</h1>
+            <p>Your ultimate beauty destination in Achimota Market, Ghana. Professional beauty services for all occasions.</p>
+            <a href="#booking" class="btn">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Discover our wide range of professional beauty services tailored to enhance your natural beauty</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="Gallery/IMG-20250414-WA0601.jpg" alt="Professional Makeup" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Professional Makeup</h3>
+                        <p class="service-description">Expert makeup application for all occasions including bridal, special events, photoshoots, and daily glam.</p>
+                        <a href="#booking" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="Gallery/nail art.png" alt="Nail Art" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Nail Art & Care</h3>
+                        <p class="service-description">Creative nail designs, manicures, pedicures, gel extensions, and nail health treatments.</p>
+                        <a href="#booking" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="Gallery/IMG-20250414-WA0602.jpg" alt="Lash Services" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Lash Services</h3>
+                        <p class="service-description">Lash extensions, lifts, tints, and maintenance to enhance your natural beauty.</p>
+                        <a href="#booking" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <video src="Gallery/VID-20250414-WA0038.mp4" alt="Facial Treatments" class="service-vid">
+                    <div class="service-content">
+                        <h3 class="service-title">Facial Treatments</h3>
+                        <p class="service-description">Rejuvenating facials, deep cleansing, anti-aging treatments, and skin care consultations.</p>
+                        <a href="#booking" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="Gallery/IMG-20250414-WA0603.jpg" alt="Home Services" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Home Services</h3>
+                        <p class="service-description">Enjoy our professional beauty services in the comfort of your own home or venue.</p>
+                        <a href="#booking" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="Gallery/IMG-20250414-WA0604.jpg" alt="Bridal Packages" class="service-img">
+                    <div class="service-content">
+                        <h3 class="service-title">Bridal Packages</h3>
+                        <p class="service-description">Complete beauty packages for brides and bridal parties to look stunning on the special day.</p>
+                        <a href="#booking" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section" style="background-color: #f0f0f0;">
+        <div class="container">
+            <h2 class="section-title">Beauty Products</h2>
+            <p class="section-subtitle">Browse our selection of high-quality beauty products, accessories, and jewelry</p>
+            
+            <div class="products-container">
+                <div class="product-card">
+                    <img src="Gallery/cosmetics.png" alt="Cosmetics" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Cosmetics</h3>
+                        <p class="product-category">Makeup</p>
+                        <p class="product-description">High-quality makeup products for all skin types and tones.</p>
+                        <a href="#contact" class="btn">Inquire</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Gallery/IMG-20250414-WA0600.jpg" alt="Jewelry" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">Fashion Jewelry</h3>
+                        <p class="product-category">Accessories</p>
+                        <p class="product-description">Trendy and affordable jewelry pieces to complement any look.</p>
+                        <a href="#contact" class="btn">Inquire</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Gallery/skincare.png" alt="Skincare" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">Skincare Essentials</h3>
+                        <p class="product-category">Skincare</p>
+                        <p class="product-description">Quality skincare products for daily routines and special treatments.</p>
+                        <a href="#contact" class="btn">Inquire</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="Gallery/products.png" alt="Products" class="product-img">
+                    <div class="product-content">
+                        <h3 class="product-title">Hair Care Products</h3>
+                        <p class="product-category">Hair Care</p>
+                        <p class="product-description">Professional hair care items for all hair types and concerns.</p>
+                        <a href="#contact" class="btn">Inquire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="Gallery/Edvine.png" alt="Edvine Beautys Home">
+                </div>
+                <div class="about-content">
+                    <h2>Your Beauty is Our Passion</h2>
+                    <p>Edvine Beautys Home Unisex is a premier beauty establishment located in the heart of Achimota Market, Ghana. Since our inception, we have been dedicated to providing high-quality beauty services to enhance the natural beauty of our clients.</p>
+                    <p>Our team of skilled professionals specializes in makeup artistry, nail care, lash services, facial treatments, and more. We pride ourselves on staying updated with the latest beauty trends and techniques to offer you the best experience.</p>
+                    <p>At Edvine Beautys, we believe that everyone deserves to feel beautiful and confident. That's why we offer personalized services that cater to your unique beauty needs and preferences.</p>
+                    <p>Visit us today for a transformative beauty experience or book our home services for added convenience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-container">
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Edvine Beautys transformed me for my wedding day! The makeup was flawless and lasted all day. Their team is professional and makes you feel so comfortable. Highly recommended!"</p>
+                        <p class="testimonial-author">- Akosua M.</p>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <p class="testimonial-text">"I've been getting my nails done here for over a year and I'm always impressed with their creativity and attention to detail. The nail art is always on point and lasts longer than any other salon I've tried."</p>
+                        <p class="testimonial-author">- Kwame D.</p>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Their facial treatments are amazing! My skin has never looked better. The staff is knowledgeable and recommended products that work perfectly for my skin type. This is now my go-to beauty salon."</p>
+                        <p class="testimonial-author">- Ama B.</p>
+                    </div>
+                </div>
+                
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work</h2>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="Gallery/IMG-20250414-WA0610.jpg" alt="Makeup" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Bridal Makeup</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Gallery/nail art.png" alt="Nail Art" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Creative Nail Art</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Gallery/IMG-20250414-WA0608.jpg" alt="Lash Extensions" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Lash Extensions</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Gallery/facial.png" alt="Facial" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Facial Treatment</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Gallery/mani.png" alt="Manicure" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Professional Manicure</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Gallery/IMG-20250414-WA0607.jpg" alt="Party Makeup" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Party Makeup</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Gallery/pedi.png" alt="Pedicure" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Luxury Pedicure</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="Gallery/58d5e951-8a93-4b00-a56b-e585ebcebcc7.png" alt="Special Event" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Special Event Styling</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Gallery Images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <!-- Booking Section -->
+    <section id="booking">
+        <h2>Book an Appointment</h2>
+        <form id="bookingForm">
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="tel" placeholder="Phone Number" required />
+          <select required>
+            <option value="">Select Service</option>
+            <option>Makeup</option>
+            <option>Nail Art</option>
+            <option>Lashes</option>
+            <option>Facial</option>
+          </select>
+          <input type="date" required />
+          <button type="submit">Book Now</button>
+        </form>
+      </section>
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <p><strong>Location:</strong> Achimota Market, Ghana</p>
+        <p><strong>Phone:</strong> +233 20 176 99 22</p>
+        <p><strong>Email:</strong> info@edvinebeauty.com</p>
+      </section>
+                <footer>
+                    <p>&copy; 2025 Edvine Beauty Home Unisex. All rights reserved.</p>
+                  </footer>
+                
+                  <script src="javascript/script.js"></script>
+                </body>
+                </html>
